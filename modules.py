@@ -33,7 +33,8 @@ def items_by_category(purchases: list[dict]) -> str:
         if category not in result_dict:
             result_dict[category] = [i["item"]]
         else:
-            result_dict[category].append(i["item"])
+            if i['item'] not in result_dict[category]:
+                result_dict[category].append(i["item"])
 
     return "Товары по категориям: {}".format(result_dict)
 
